@@ -1,3 +1,63 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+
+:root {
+    --current: currentColor;
+
+    --frontkar-c-transparent: transparent;
+    --frontkar-c-white: oklch(0.98 0 0 / 1);
+    --frontkar-c-primary: oklch(0.59 0.19 254.77 / 1);
+    --frontkar-c-secondary: oklch(0.57 0.20 283.08 / 1);
+    --frontkar-c-accent: oklch(0.69 0.12 185.39 / 1);
+    --frontkar-c-neutral: oklch(0.31 0.02 254.14 / 1);
+    --frontkar-c-info: oklch(0.76 0.14 231.62 / 1);
+    --frontkar-c-success: oklch(0.77 0.15 163.10 / 1);
+    --frontkar-c-warning: oklch(0.83 0.16 83.42 / 1);
+    --frontkar-c-error: oklch(0.71 0.16 22.15 / 1);
+    --frontkar-c-gradient-first: oklch(0.83 0.18 160.17 / 1);
+    --frontkar-c-gradient-second: oklch(0.68 0.15 238.98 / 1);
+
+
+    --frontkar-c-primary-focus: color-mix(in oklch, var(--frontkar-c-primary), black 7%);
+    --frontkar-c-primary-content: color-mix(in oklch, var(--frontkar-c-primary), white 80%);
+    --frontkar-c-secondary-focus: color-mix(in oklch, var(--frontkar-c-secondary), black 7%);
+    --frontkar-c-secondary-content: color-mix(in oklch, var(--frontkar-c-secondary), white 80%);
+    --frontkar-c-accent-focus: color-mix(in oklch, var(--frontkar-c-accent), black 7%);
+    --frontkar-c-accent-content: color-mix(in oklch, var(--frontkar-c-accent), white 80%);
+    --frontkar-c-neutral-focus: color-mix(in oklch, var(--frontkar-c-neutral), black 3%);
+    --frontkar-c-neutral-content: color-mix(in oklch, var(--frontkar-c-neutral), white 80%);
+    --frontkar-c-info-content: color-mix(in oklch, var(--frontkar-c-info), black 80%);
+    --frontkar-c-success-content: color-mix(in oklch, var(--frontkar-c-success), black 80%);
+    --frontkar-c-warning-content: color-mix(in oklch, var(--frontkar-c-warning), black 80%);
+    --frontkar-c-error-content: color-mix(in oklch, var(--frontkar-c-error), black 80%);
+}
+
+@theme {
+    --color-*: initial;
+
+    --color-current: var(--current);
+    --color-transparent: var(--frontkar-c-transparent);
+    --color-white: var(--frontkar-c-white);
+    --color-primary: var(--frontkar-c-primary);
+    --color-primary-content: var(--frontkar-c-primary-content);
+    --color-primary-focus: var(--frontkar-c-primary-focus);
+    --color-secondary: var(--frontkar-c-secondary);
+    --color-secondary-content: var(--frontkar-c-secondary-content);
+    --color-secondary-focus: var(--frontkar-c-secondary-focus);
+    --color-accent: var(--frontkar-c-accent);
+    --color-accent-content: var(--frontkar-c-accent-content);
+    --color-accent-focus: var(--frontkar-c-accent-focus);
+    --color-neutral: var(--frontkar-c-neutral);
+    --color-neutral-content: var(--frontkar-c-neutral-content);
+    --color-neutral-focus: var(--frontkar-c-neutral-focus);
+    --color-info: var(--frontkar-c-info);
+    --color-info-content: var(--frontkar-c-info-content);
+    --color-success: var(--frontkar-c-success);
+    --color-success-content: var(--frontkar-c-success-content);
+    --color-warning: var(--frontkar-c-warning);
+    --color-warning-content: var(--frontkar-c-warning-content);
+    --color-error: var(--frontkar-c-error);
+    --color-error-content: var(--frontkar-c-error-content);
+    --color-gradient-first: var(--frontkar-c-gradient-first);
+    --color-gradient-second: var(--frontkar-c-gradient-second);
+}
