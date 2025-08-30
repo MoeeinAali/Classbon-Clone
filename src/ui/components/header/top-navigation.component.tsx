@@ -4,7 +4,7 @@ import {ReactNode} from "react";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 
-const menuItems: NavigationMenuItem[] = [
+const menuItems: NavigationMenuItemType[] = [
     {
         title: "صفحه اصلی",
         href: "/"

@@ -1,4 +1,4 @@
-type NavigationMenuItem = {
+type NavigationMenuItemType = {
     title: string;
     href: string;
 }
