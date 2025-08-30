@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+html {
+    font-family: var(--font-yekanbakh);
+}
+
+:lang(en) {
+    font-family: var(--font-figtree);
+}
 
 :root {
     --current: currentColor;
@@ -33,8 +40,6 @@
 }
 
 @theme {
-    --color-*: initial;
-
     --color-current: var(--current);
     --color-transparent: var(--frontkar-c-transparent);
     --color-white: var(--frontkar-c-white);
