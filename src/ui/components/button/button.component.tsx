@@ -1,4 +1,20 @@
-import {ButtonProps} from "@/ui/components/button/button.types";
+import {Size} from "@/lib/types/size.type";
+import {ButtonProps, ButtonShape} from "@/ui/components/button/button.types";
+import classNames from "classnames";
+
+const sizeClasses: Record<Size, string> = {
+    'large': 'btn-lg',
+    'small': 'btn-sm',
+    'tiny': 'btn-xs',
+    'normal': '',
+}
+
+const shapeClasses: Record<ButtonShape, string> = {
+    wide: "btn-wide",
+    full: "btn-block",
+    square: "btn-square",
+    default: "",
+};
 
 
 export const Button: React.FC<ButtonProps> = ({
@@ -17,9 +33,20 @@ export const Button: React.FC<ButtonProps> = ({
                                                   children,
                                                   ...restProps
                                               }: ButtonProps) => {
-    const classes = `btn ${variant ? 'btn-' + variant : ''} ${isIconAnimated ? 'animated-icon' : ''}`;
+    const classes = classNames(
+        "btn",
+        className,
+        {[`btn-${variant}`]: variant},
+        {[`${sizeClasses[size]}`]: size},
+        {"btn-outline": isOutlined},
+        {"btn-link": isLink},
+        {[`${shapeClasses[shape]}`]: shape},
+        {"animated-icon": isIconAnimated},
+        {"pointer-events-none opacity-80": isLoading}
+    );
+
     return (
-        <button type={type} disabled={isDisabled} className={className} {...restProps}>
+        <button type={type} disabled={isDisabled} className={classes} {...restProps}>
             {isLoading ? loadingText : children}
         </button>
     )

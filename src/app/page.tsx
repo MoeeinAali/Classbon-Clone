@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Button from "@/ui/components/button/button.component";
 
 export default function HomePage() {
     return (
@@ -33,6 +34,9 @@ export default function HomePage() {
                     />
                 </div>
             </section>
+            <div className={"container"}>
+                <Button variant={"info"} size={"large"} isIconAnimated={true}>ثبت‌نام</Button>
+            </div>
         </>
     );
 }
