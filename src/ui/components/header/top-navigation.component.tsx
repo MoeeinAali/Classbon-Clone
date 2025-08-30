@@ -10,7 +10,7 @@ const menuItems: NavigationMenuItemType[] = [
         href: "/"
     },
     {
-        title: "دوره‌های ری‌امت و نکست",
+        title: "دوره‌های ری‌اکت و نکست",
         href: "/courses"
     },
     {
@@ -19,7 +19,7 @@ const menuItems: NavigationMenuItemType[] = [
     },
 ]
 
-export const TopNavigationComponent: () => ReactNode = () => {
+export const TopNavigation: () => ReactNode = () => {
     const pathname = usePathname();
     return (
         <>
@@ -42,4 +42,4 @@ export const TopNavigationComponent: () => ReactNode = () => {
     )
 }
 
-export default TopNavigationComponent;
+export default TopNavigation;

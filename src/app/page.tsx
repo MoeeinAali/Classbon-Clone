@@ -18,6 +18,10 @@ export default function HomePage() {
                             کلاسبن می‌تونی بدون محدودیت به قله‌های بالاتر صعود کنی. ما همیشه
                             هواتو داریم.
                         </p>
+                        <div className={"mt-5 flex gap-4"}>
+                            <Button variant={"primary"} size={"large"}>دوره‌های ری‌اکت و نکست</Button>
+                            <Button variant={"neutral"} size={"large"}>مشاوره برنامه‌نویسی</Button>
+                        </div>
                         <Image
                             src="/images/frameworks.png"
                             className="grayscale mt-4 opacity-70 m-auto xl:m-0"
@@ -34,9 +38,6 @@ export default function HomePage() {
                     />
                 </div>
             </section>
-            <div className={"container"}>
-                <Button variant={"info"} size={"large"} isIconAnimated={true}>ثبت‌نام</Button>
-            </div>
         </>
     );
 }

@@ -39,7 +39,7 @@ export const Button: React.FC<ButtonProps> = ({
         {[`btn-${variant}`]: variant},
         {[`${sizeClasses[size]}`]: size},
         {"btn-outline": isOutlined},
-        {"btn-link": isLink},
+            {"btn-link": isLink},
         {[`${shapeClasses[shape]}`]: shape},
         {"animated-icon": isIconAnimated},
         {"pointer-events-none opacity-80": isLoading}

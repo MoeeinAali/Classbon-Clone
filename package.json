@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "@tailwindcss/postcss": "^4.1.12",
     "classnames": "^2.5.1",
     "next": "15.4.2",
     "postcss": "^8.5.6",
+    "postcss-nested": "^7.0.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "tailwindcss": "^4.1.12"
