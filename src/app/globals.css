@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-html {
-    font-family: var(--font-yekanbakh);
-}
-
-:lang(en) {
-    font-family: var(--font-figtree);
-}
-
 :root {
     --current: currentColor;
 
@@ -65,4 +57,28 @@ html {
     --color-error-content: var(--frontkar-c-error-content);
     --color-gradient-first: var(--frontkar-c-gradient-first);
     --color-gradient-second: var(--frontkar-c-gradient-second);
+}
+
+@layer utilities {
+    .container {
+        margin: 0 auto;
+    }
+
+    .bg-hero-pattern {
+        background-image: url('/images/tile.svg');
+    }
+
+    .gradient {
+        @apply bg-gradient-to-r from-gradient-first to-gradient-second text-transparent bg-clip-text;
+    }
+}
+
+@layer base {
+    body {
+        font-family: var(--font-yekanbakh);
+    }
+
+    :lang(en) {
+        font-family: var(--font-figtree);
+    }
 }
