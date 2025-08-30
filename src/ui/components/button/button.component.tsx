@@ -1,6 +1,7 @@
 import {Size} from "@/lib/types/size.type";
 import {ButtonProps, ButtonShape} from "@/ui/components/button/button.types";
 import classNames from "classnames";
+import {Loading} from "@/ui/components/loading/loading.component";
 
 const sizeClasses: Record<Size, string> = {
     'large': 'btn-lg',
@@ -39,7 +40,7 @@ export const Button: React.FC<ButtonProps> = ({
         {[`btn-${variant}`]: variant},
         {[`${sizeClasses[size]}`]: size},
         {"btn-outline": isOutlined},
-            {"btn-link": isLink},
+        {"btn-link": isLink},
         {[`${shapeClasses[shape]}`]: shape},
         {"animated-icon": isIconAnimated},
         {"pointer-events-none opacity-80": isLoading}
@@ -47,6 +48,7 @@ export const Button: React.FC<ButtonProps> = ({
 
     return (
         <button type={type} disabled={isDisabled} className={classes} {...restProps}>
+            {isLoading && <Loading type={loadingType}/>}
             {isLoading ? loadingText : children}
         </button>
     )

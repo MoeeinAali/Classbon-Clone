@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@import "../ui/tailwind/button.css";
+@import "../ui/tailwind/components.css";
 
 :root {
     --current: currentColor;
