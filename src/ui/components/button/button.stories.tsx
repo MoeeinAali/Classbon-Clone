@@ -1,14 +1,24 @@
-import {Meta, StoryObj} from "@storybook/react";
+import {Meta, StoryObj} from "@storybook/nextjs";
 import {Button} from "./button.component";
+import results from '../../../../.jest-test-results.json'
+import {withTests} from "@storybook/addon-jest";
 
 const meta: Meta<typeof Button> = {
     title: 'Components/Button',
     component: Button,
     tags: ['autodocs'],
 };
-export default meta;
 
 type Story = StoryObj<typeof Button>;
+
+
+export const Tests: Story = {
+    render: (args) => (<Button {...args}>Click on Me!</Button>)
+}
+
+Tests.decorators = [withTests({results})]
+
+
 export const BrandColors: Story = {
     render: () => (
         <div className={"flex gap-x-2"}>
@@ -243,12 +253,14 @@ export const ButtonWithLoading: Story = {
         <>
             <Button variant="neutral" isLoading={true} loadingText="Loading">
             </Button>
-            <Button variant="neutral"  isLoading={true} loadingType={"ring"} loadingText="Loading">
+            <Button variant="neutral" isLoading={true} loadingType={"ring"} loadingText="Loading">
             </Button>
             <Button variant="primary" isLoading={true} loadingText="Loading">
             </Button>
-            <Button variant="accent"  isOutlined={true} isLoading={true} loadingType={"ring"} loadingText="Loading">
+            <Button variant="accent" isOutlined={true} isLoading={true} loadingType={"ring"} loadingText="Loading">
             </Button>
         </>
     ),
 };
+
+export default meta;

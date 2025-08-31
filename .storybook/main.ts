@@ -1,6 +1,6 @@
 const config = {
     stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-    addons: ['@storybook/addon-essentials', '@storybook/addon-docs'],
+    addons: [ '@storybook/addon-docs', '@storybook/addon-jest'],
     tags: ['autodocs'],
     framework: {name: '@storybook/nextjs', options: {}},
     staticDirs: ['../public'],
