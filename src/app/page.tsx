@@ -1,5 +1,6 @@
 import {CourseSummary} from "@/lib/types/course-summary.dto";
 import {HomeHeroSection} from "@/app/_components/home-hero-section/home-hero-section.component";
+import CourseCardList from "@/app/(courses)/_components/course-card-list/course-card-list";
 
 
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
@@ -22,7 +23,7 @@ export default async function HomePage() {
                         برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!
                     </p>
                 </div>
-                {/*<CourseCardList courses={newestCourses}/>*/}
+                <CourseCardList courses={newestCourses}/>
             </section>
         </>
     );
