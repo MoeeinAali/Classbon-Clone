@@ -1,5 +1,7 @@
 import {Meta, StoryObj} from "@storybook/nextjs";
 import {Loading} from "./loading.component";
+import {withTests} from "@storybook/addon-jest";
+import results from "../../../../.jest-test-results.json";
 
 const meta: Meta<typeof Loading> = {
     title: 'Components/Loading',
@@ -7,9 +9,16 @@ const meta: Meta<typeof Loading> = {
     tags: ['autodocs'],
 };
 
-export default meta;
 
 type Story = StoryObj<typeof Loading>;
+
+export const Tests: Story = {
+    render: (args) => (<Loading {...args}/>)
+}
+
+Tests.decorators = [withTests({results})]
+
+
 export const LoadingSpinner: Story = {
     render: () => (
         <>
@@ -61,3 +70,5 @@ export const LoadingRingWithColors: Story = {
         </>
     ),
 };
+
+export default meta;
