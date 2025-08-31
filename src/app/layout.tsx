@@ -2,8 +2,8 @@ import type {Metadata} from "next";
 import {Figtree} from 'next/font/google'
 import localFont from 'next/font/local'
 import "./globals.css";
-import HeaderComponent from "@/app/_components/header/header.component";
-import FooterComponent from "@/app/_components/footer/footer.component";
+import Header from "@/app/_components/header/header";
+import Footer from "@/app/_components/footer/footer";
 
 const figtree = Figtree({
     display: 'swap',
@@ -62,11 +62,11 @@ export default function RootLayout({
     return (
         <html dir={"rtl"} className={`${figtree.variable} ${yekanBakh.variable}`}>
         <body className="min-h-screen grid grid-rows-[80px_1fr_auto] bg-base-100 text-base-content">
-        <HeaderComponent/>
+        <Header/>
         <main className={"px-4 lg:px-12"}>
             {children}
         </main>
-        <FooterComponent/>
+        <Footer/>
         </body>
         </html>
     );

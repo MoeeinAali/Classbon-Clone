@@ -1,8 +1,8 @@
 import {ReactNode} from "react";
 import Image from "next/image";
-import TopNavigation from "@/app/_components/top-navigation.component";
+import TopNavigation from "@/app/_components/top-navigaation/top-navigation.component";
 
-export const HeaderComponent: () => ReactNode = () => {
+export const Header: () => ReactNode = () => {
 
     return (
         <header className="border-b border-base-300 border-opacity-5 px-4 lg:px-12">
@@ -20,4 +20,4 @@ export const HeaderComponent: () => ReactNode = () => {
     )
 }
 
-export default HeaderComponent;
+export default Header;
