@@ -1,5 +1,5 @@
-import {HomeHeroSection} from "@/ui/components/home-hero-section/home-hero-section.component";
 import {CourseSummary} from "@/lib/types/course-summary.dto";
+import {HomeHeroSection} from "@/app/_components/home-hero-section/home-hero-section.component";
 
 
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
@@ -13,9 +13,17 @@ export default async function HomePage() {
     return (
         <>
             <HomeHeroSection/>
-            {
-                newestCourses.map((course) => (<p key={course.id}>{course.title}</p>))
-            }
+            <section className="container pt-20">
+                <div className="text-center xl:text-right">
+                    <h2 className="text-2xl font-extrabold">
+                        تازه ترین دوره های آموزشی
+                    </h2>
+                    <p className="mt-3 text-lg">
+                        برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!
+                    </p>
+                </div>
+                {/*<CourseCardList courses={newestCourses}/>*/}
+            </section>
         </>
     );
 }

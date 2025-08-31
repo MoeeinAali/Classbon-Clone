@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
 import Image from "next/image";
-import {TopNavigation} from "@/ui/components/header/top-navigation.component";
+import TopNavigation from "@/app/_components/top-navigation.component";
 
 export const HeaderComponent: () => ReactNode = () => {
 
