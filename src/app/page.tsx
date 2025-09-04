@@ -1,4 +1,3 @@
-import { CourseSummary } from "@/lib/types/course-summary.dto";
 import { HomeHeroSection } from "@/app/_components/home-hero-section/home-hero-section.component";
 import CourseCardList from "@/app/_components/course-card-list/course-card-list";
 import { homeFeatures } from "@/lib/data/home-features";
@@ -9,6 +8,7 @@ import { BlogPostSummary } from "@/lib/types/blog-post-summary.type";
 import BlogPostCardList from "./_components/blog-post-card-list/blog-post-card-list";
 import { API_URL } from "@/lib/configs/global";
 import { Suspense } from "react";
+import { CardPlaceholder } from "@/ui/components/placeholders/card/card-placeholder";
 
 
 
@@ -50,8 +50,8 @@ export default async function HomePage() {
                         برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!
                     </p>
                 </div>
-                <Suspense fallback={<div>در حال دریافت اطلاعات...</div>}>
-                    <CourseCardList/>
+                <Suspense fallback={<CardPlaceholder count={4} />}>
+                    <CourseCardList />
                 </Suspense>
             </section>
 

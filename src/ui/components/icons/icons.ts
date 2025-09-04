@@ -8,6 +8,7 @@ export { default as IconCheck } from './src/check';
 export { default as IconClock } from './src/clock';
 export { default as IconClose } from './src/close';
 export { default as IconComment } from './src/comment';
+export { default as IconCover } from './src/cover';
 export { default as IconDoc } from './src/doc';
 export { default as IconDot } from './src/dot';
 export { default as IconDownload } from './src/download';

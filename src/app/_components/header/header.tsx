@@ -5,8 +5,8 @@ import TopNavigation from "@/app/_components/top-navigaation/top-navigation.comp
 export const Header: () => ReactNode = () => {
 
     return (
-        <header className="border-b border-base-300 border-opacity-5 container">
-            <div className="flex items-center justify-between">
+        <header className="border-b border-base-300 border-opacity-5">
+            <div className="flex items-center justify-between container">
                 <Image
                     src="/images/logo-light.svg"
                     width={100}
