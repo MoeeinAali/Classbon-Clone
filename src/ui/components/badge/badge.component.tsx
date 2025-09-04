@@ -19,9 +19,9 @@ export const Badge: React.FC<BadgeProps> = ({
 
     const classes = classNames(
         "badge",
-        className,
         { [`badge-${variant}`]: variant },
-        { [sizeClasses[size]]: size }
+        { [sizeClasses[size]]: size },
+        className,
     );
 
 
