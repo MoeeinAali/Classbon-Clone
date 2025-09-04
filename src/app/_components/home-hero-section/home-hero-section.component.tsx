@@ -19,7 +19,7 @@ export const HomeHeroSection: React.FC = () => {
                     هواتو داریم.
                 </p>
                 <div className={"mt-5 flex gap-4 justify-center xl:justify-start"}>
-                    <Button variant={"primary"} size={"large"}>
+                    <Button isIconAnimated={true} variant={"primary"} size={"large"}>
                         دوره‌های ری‌اکت و نکست
                         <IconArrowLeftFill fill="currentColor" />
                     </Button>

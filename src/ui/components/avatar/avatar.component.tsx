@@ -20,8 +20,7 @@ const Avatar: React.FC<AvatarProps> = ({
 }) => {
     const classes = classNames(
         "avatar",
-        { [`avatar-${variant}`]: variant },
-        { [`${sizeClasses[size]}`]: size },
+        { [`avatar ${variant}`]: variant },
         className,
     )
     return (

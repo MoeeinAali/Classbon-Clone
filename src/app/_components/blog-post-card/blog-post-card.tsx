@@ -27,8 +27,8 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
             <figure>
                 <Image src={coverImage} alt={title} width={550} height={327} />
             </figure>
-            <div className="card-body">
-                <Link href={`/blog/${slug}`} className="card-title mb-auto">
+            <div className="card body">
+                <Link href={`/blog/${slug}`} className="card title mb-auto">
                     {title}
                 </Link>
 
@@ -44,7 +44,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
                 </div>
             </div>
 
-            <div className="card-footer text-xs justify-between">
+            <div className="card footer text-xs justify-between">
                 <div className="flex gap-1">
                     <Badge variant="warning">
                         <IconEye width={16} height={16} />

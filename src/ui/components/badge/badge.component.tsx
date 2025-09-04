@@ -3,10 +3,10 @@ import classNames from "classnames";
 import { Size } from "@/lib/types/size.type";
 
 const sizeClasses: Record<Size, string> = {
-    'large': 'badge-lg',
-    'small': 'badge-sm',
-    'normal': 'badge-md',
-    'tiny': 'badge-xs',
+    'large': 'badge lg',
+    'small': 'badge sm',
+    'normal': 'badge md',
+    'tiny': 'badge xs',
 }
 
 
@@ -19,7 +19,7 @@ export const Badge: React.FC<BadgeProps> = ({
 
     const classes = classNames(
         "badge",
-        { [`badge-${variant}`]: variant },
+        { [`badge ${variant}`]: variant },
         { [sizeClasses[size]]: size },
         className,
     );

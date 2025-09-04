@@ -3,10 +3,10 @@ import classNames from "classnames";
 import {Size} from "@/lib/types/size.type";
 
 const sizeClasses: Record<Size, string> = {
-    tiny: "loading-xs",
-    small: "loading-sm",
-    normal: "loading-md",
-    large: "loading-lg",
+    tiny: "loading xs",
+    small: "loading sm",
+    normal: "loading md",
+    large: "loading lg",
 };
 
 export const Loading: React.FC<LoadingProps> = ({
@@ -20,8 +20,8 @@ export const Loading: React.FC<LoadingProps> = ({
         "loading",
         className,
         { [`${sizeClasses[size]}`]: size },
-        { [`loading-${variant}`]: variant },
-        { [`loading-${type}`]: type}
+        { [`loading ${variant}`]: variant },
+        { [`loading ${type}`]: type}
     );
     return <span className={classes}></span>;
 };

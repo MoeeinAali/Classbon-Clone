@@ -5,31 +5,31 @@
       @apply opacity-40;
     }
   
-    &-neutral {
+    &.neutral {
       @apply ring-base-50;
     }
-    &-primary {
+    &.primary {
       @apply ring-primary;
     }
-    &-secondary {
+    &.secondary {
       @apply ring-secondary;
     }
-    &-accent {
+    &.accent {
       @apply ring-accent;
     }
-    &-info {
+    &.info {
       @apply ring-info;
     }
-    &-success {
+    &.success {
       @apply ring-success;
     }
-    &-warning {
+    &.warning {
       @apply ring-warning;
     }
-    &-error {
+    &.error {
       @apply ring-error;
     }
-    &-ghost {
+    &.ghost {
       @apply ring-base-100;
     }
   
