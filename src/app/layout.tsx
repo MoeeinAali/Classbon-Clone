@@ -63,7 +63,7 @@ export default function RootLayout({
         <html dir={"rtl"} className={`${figtree.variable} ${yekanBakh.variable}`}>
         <body className="min-h-screen grid grid-rows-[80px_1fr_auto] bg-base-100 text-base-content">
         <Header/>
-        <main className={"px-4 lg:px-12"}>
+        <main>
             {children}
         </main>
         <Footer/>

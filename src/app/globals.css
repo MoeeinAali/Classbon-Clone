@@ -81,6 +81,7 @@
 @layer utilities {
     .container {
         margin: 0 auto;
+        @apply px-4 lg:px-12;
     }
 
     .bg-hero-pattern {
