@@ -1,5 +1,5 @@
-import {CourseSummary} from "@/lib/types/course-summary.dto";
-import {HomeHeroSection} from "@/app/_components/home-hero-section/home-hero-section.component";
+import { CourseSummary } from "@/lib/types/course-summary.dto";
+import { HomeHeroSection } from "@/app/_components/home-hero-section/home-hero-section.component";
 import CourseCardList from "@/app/_components/course-card-list/course-card-list";
 
 
@@ -13,7 +13,7 @@ export default async function HomePage() {
     const newestCourses = await getNewestCourses(4);
     return (
         <>
-            <HomeHeroSection/>
+            <HomeHeroSection />
             <section className="container pt-20">
                 <div className="text-center xl:text-right">
                     <h2 className="text-2xl font-extrabold">
@@ -23,7 +23,7 @@ export default async function HomePage() {
                         برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!
                     </p>
                 </div>
-                <CourseCardList courses={newestCourses}/>
+                <CourseCardList courses={newestCourses} />
             </section>
         </>
     );
