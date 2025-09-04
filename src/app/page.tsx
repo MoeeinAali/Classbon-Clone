@@ -5,16 +5,40 @@ import { homeFeatures } from "@/lib/data/home-features";
 import Feature from "./_components/feature/feature";
 import Button from "@/ui/components/button/button.component";
 import { IconArrowLeftFill } from "@/ui/components/icons/icons";
+import { BlogPostSummary } from "@/lib/types/blog-post-summary.type";
+import BlogPostCardList from "./_components/blog-post-card-list/blog-post-card-list";
 
 
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
-    const response = await fetch(`https://api.classbon.com/api/courses/newest/${count}`)
+    const response = await fetch(`https://api.classbon.com/api/courses/newest/${count}`,
+        {
+            next: {
+                revalidate: 24 * 60 * 60
+            }
+        }
+    )
     const data: CourseSummary[] = await response.json();
     return data;
 }
 
+async function getNewestPosts(count: number): Promise<BlogPostSummary[]> {
+    const response = await fetch(`https://api.classbon.com/api/blog/newest/${count}`,
+        {
+            next: {
+                revalidate: 24 * 60 * 60
+            }
+        }
+    )
+    const data: BlogPostSummary[] = await response.json();
+    return data;
+}
+
 export default async function HomePage() {
-    const newestCourses = await getNewestCourses(4);
+    const [newestCourses, newestPosts] = await Promise.all([
+        getNewestCourses(4),
+        getNewestPosts(4)
+    ])
+
     return (
         <>
             <HomeHeroSection />
@@ -39,6 +63,7 @@ export default async function HomePage() {
                 </div>
                 <CourseCardList courses={newestCourses} />
             </section>
+
             <section className="px-2 my-40">
                 <div className="relative pt-0 text-center">
                     <div className="bg-primary pointer-events-none absolute left-1/2 aspect-square w-1/2 -translate-x-1/2 -top-96 rounded-full opacity-10 blur-3xl"></div>
@@ -76,6 +101,29 @@ export default async function HomePage() {
                         </Button>
                     </div>
                 </div>
+            </section>
+
+            <section className="container my-20">
+                <div className="flex flex-col xl:flex-row gap-4 justify-center xl:justify-between items-center">
+                    <div className="text-center xl:text-right">
+                        <h2 className="text-2xl font-extrabold">
+                            تازه‌ترین مقاله‌های آموزشی
+                        </h2>
+                        <p className="mt-3 text-lg">
+                            به رایگان، به‌روزترین مقاله‌های دنیای تکنولوژی رو در
+                            اختیارت می‌ذاریم؛ چون پیشرفتت برامون مهمه!
+                        </p>
+                    </div>
+                    <Button
+                        variant="neutral"
+                        className="font-semibold"
+                        isIconAnimated={true}
+                    >
+                        همه مقاله‌ها
+                        <IconArrowLeftFill fill="currentColor" />
+                    </Button>
+                </div>
+                <BlogPostCardList posts={newestPosts} />
             </section>
         </>
     );
