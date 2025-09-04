@@ -1,4 +1,5 @@
 import Button from "@/ui/components/button/button.component";
+import { IconArrowLeftFill } from "@/ui/components/icons/icons";
 import Image from "next/image";
 
 export const HomeHeroSection: React.FC = () => {
@@ -18,8 +19,13 @@ export const HomeHeroSection: React.FC = () => {
                     هواتو داریم.
                 </p>
                 <div className={"mt-5 flex gap-4 justify-center xl:justify-start"}>
-                    <Button variant={"primary"} size={"large"}>دوره‌های ری‌اکت و نکست</Button>
-                    <Button variant={"neutral"} size={"large"}>مشاوره برنامه‌نویسی</Button>
+                    <Button variant={"primary"} size={"large"}>
+                        دوره‌های ری‌اکت و نکست
+                        <IconArrowLeftFill fill="currentColor" />
+                    </Button>
+                    <Button variant={"neutral"} size={"large"}>
+                        مشاوره برنامه‌نویسی
+                    </Button>
                 </div>
                 <Image
                     src="/images/frameworks.png"
