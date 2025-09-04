@@ -1,19 +1,20 @@
-import {CourseSummary} from "@/lib/types/course-summary.dto";
+import { CourseSummary } from "@/lib/types/course-summary.dto";
+import Badge from "@/ui/components/badge/badge.component";
 import Image from "next/image";
 import Link from "next/link";
 
 export type CourseCardProps = CourseSummary & {}
 
 const CourseCard: React.FC<CourseCardProps> = ({
-                                                   coverImageId,
-                                                   title,
-                                                   subTitle,
-                                                   level,
-                                                   recordStatus,
-                                                   basePrice,
-                                                   duration,
-                                                   slug
-                                               }: CourseCardProps) => {
+    coverImageId,
+    title,
+    subTitle,
+    level,
+    recordStatus,
+    basePrice,
+    duration,
+    slug
+}: CourseCardProps) => {
     return (
         <div className="card">
             <figure>
@@ -25,8 +26,8 @@ const CourseCard: React.FC<CourseCardProps> = ({
                 />
             </figure>
             <div className="mt-2 flex gap-2 font-semibold dark:text-info px-3 py-2">
-                {recordStatus}
-                {level}
+                <Badge variant="info">{recordStatus}</Badge>
+                <Badge variant="accent">{level}</Badge>
             </div>
             <div className="card-body">
                 <Link href={`/courses/${slug}`} className="card-title">
@@ -34,8 +35,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
                 </Link>
                 <p>{subTitle}</p>
                 <div className="flex items-center justify-between">
-                    {duration}
-
+                    <Badge variant="warning">{duration}</Badge>
                     {basePrice}
                 </div>
             </div>

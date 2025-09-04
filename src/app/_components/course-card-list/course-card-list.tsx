@@ -1,5 +1,5 @@
 import {CourseSummary} from "@/lib/types/course-summary.dto";
-import CourseCard from "@/app/(courses)/_components/course-card/course-card";
+import CourseCard from "@/app/_components/course-card/course-card";
 
 export type CourseCardListProps = {
     courses: CourseSummary[]

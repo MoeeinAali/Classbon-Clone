@@ -3,6 +3,10 @@
 
     &-body {
         @apply p-3 flex flex-col flex-auto gap-2 text-sm font-semibold leading-6;
+
+        :where(p) {
+            @apply flex-grow;
+        }
     }
 
     &-title {
@@ -10,7 +14,7 @@
     }
 
     &-footer {
-        @apply p-3 font-bold flex items-center gap-2 py-4 text-current border-t border-base-content/10 ;
+        @apply p-3 font-bold flex items-center gap-2 py-4 text-current border-t border-base-content/10;
     }
 
 }
