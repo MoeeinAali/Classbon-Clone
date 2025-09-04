@@ -1,15 +1,26 @@
 import {CourseSummary} from "@/lib/types/course-summary.dto";
 import CourseCard from "@/app/_components/course-card/course-card";
+import { API_URL } from "@/lib/configs/global";
 
-export type CourseCardListProps = {
-    courses: CourseSummary[]
+
+async function getNewestCourses(count: number): Promise<CourseSummary[]> {
+    await new Promise(resolve => setTimeout(resolve, 5000));
+    const response = await fetch(`${API_URL}/courses/newest/${count}`,
+        {
+            cache: "no-store",
+        }
+    )
+    const data: CourseSummary[] = await response.json();
+    return data;
 }
 
-const CourseCardList: React.FC<CourseCardListProps> = ({courses}: CourseCardListProps) => {
+const CourseCardList: React.FC = async () => {
+    const newestCourses = await getNewestCourses(4);
+
     return (
         <div className={"flex flex-wrap lg:justify-between gap-6 my-8 justify-center"}>
             {
-                courses.map((course) => (
+                newestCourses.map((course) => (
                     <CourseCard key={`course-${course.slug}`} {...course} />
                 ))
             }

@@ -8,19 +8,10 @@ import { IconArrowLeftFill } from "@/ui/components/icons/icons";
 import { BlogPostSummary } from "@/lib/types/blog-post-summary.type";
 import BlogPostCardList from "./_components/blog-post-card-list/blog-post-card-list";
 import { API_URL } from "@/lib/configs/global";
+import { Suspense } from "react";
 
 
-async function getNewestCourses(count: number): Promise<CourseSummary[]> {
-    const response = await fetch(`${API_URL}/courses/newest/${count}`,
-        {
-            next: {
-                revalidate: 24 * 60 * 60
-            }
-        }
-    )
-    const data: CourseSummary[] = await response.json();
-    return data;
-}
+
 
 async function getNewestPosts(count: number): Promise<BlogPostSummary[]> {
     const response = await fetch(`${API_URL}/blog/newest/${count}`,
@@ -35,10 +26,7 @@ async function getNewestPosts(count: number): Promise<BlogPostSummary[]> {
 }
 
 export default async function HomePage() {
-    const [newestCourses, newestPosts] = await Promise.all([
-        getNewestCourses(4),
-        getNewestPosts(4)
-    ])
+    const newestPosts = await getNewestPosts(4);
 
     return (
         <>
@@ -62,7 +50,9 @@ export default async function HomePage() {
                         برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!
                     </p>
                 </div>
-                <CourseCardList courses={newestCourses} />
+                <Suspense fallback={<div>در حال دریافت اطلاعات...</div>}>
+                    <CourseCardList/>
+                </Suspense>
             </section>
 
             <section className="px-2 my-40">

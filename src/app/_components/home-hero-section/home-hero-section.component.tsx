@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const HomeHeroSection: React.FC = () => {
 
-    return <section className="bg-hero-pattern bg-no-repeat bg-center xl:bg-left mt-5 xl:mt-20">
+    return <section className="bg-hero-pattern bg-no-repeat bg-center xl:bg-left py-20">
         <div className="container flex flex-col-reverse items-center xl:flex-row">
             <div className="flex-1 flex flex-col gap-5 mt-12 pb-5 text-center xl:text-right">
                 <h3 className="text-xl xl:text-2xl text-info">
