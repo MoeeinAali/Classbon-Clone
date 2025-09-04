@@ -90,6 +90,19 @@
     .gradient {
         @apply bg-gradient-to-r from-gradient-first to-gradient-second text-transparent bg-clip-text;
     }
+
+    .animated-icon {
+        & > * {
+            @apply transition-all;
+        }
+
+        &:hover {
+            & > * {
+                @apply -translate-x-2;
+                @apply text-white;
+            }
+        }
+    }
 }
 
 @layer base {

@@ -42,7 +42,7 @@ const CourseCard: React.FC<CourseCardProps> = ({
             </div>
 
             <Link
-                className="card-footer animated-icon justify-center hover:bg-neutral-focus "
+                className="card-footer justify-center hover:bg-neutral-focus animated-icon"
                 href={`/courses/${slug}`}
             >
                 مشاهده جزئیات دوره
