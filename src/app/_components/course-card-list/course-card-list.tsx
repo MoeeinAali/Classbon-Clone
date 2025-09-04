@@ -4,7 +4,7 @@ import { API_URL } from "@/lib/configs/global";
 
 
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await new Promise(resolve => setTimeout(resolve, 2000));
     const response = await fetch(`${API_URL}/courses/newest/${count}`,
         {
             cache: "no-store",

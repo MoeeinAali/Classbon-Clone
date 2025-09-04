@@ -4,7 +4,7 @@ import { API_URL } from "@/lib/configs/global";
 
 
 async function getNewestPosts(count: number): Promise<BlogPostSummary[]> {
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    await new Promise(resolve => setTimeout(resolve, 1000));
     const response = await fetch(`${API_URL}/blog/newest/${count}`,
         {
             next: {
