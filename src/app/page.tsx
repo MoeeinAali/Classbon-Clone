@@ -13,20 +13,8 @@ import { CardPlaceholder } from "@/ui/components/placeholders/card/card-placehol
 
 
 
-async function getNewestPosts(count: number): Promise<BlogPostSummary[]> {
-    const response = await fetch(`${API_URL}/blog/newest/${count}`,
-        {
-            next: {
-                revalidate: 24 * 60 * 60
-            }
-        }
-    )
-    const data: BlogPostSummary[] = await response.json();
-    return data;
-}
 
 export default async function HomePage() {
-    const newestPosts = await getNewestPosts(4);
 
     return (
         <>
@@ -94,7 +82,7 @@ export default async function HomePage() {
                 </div>
             </section>
 
-            <section className="container my-20">
+            <section className="container py-20">
                 <div className="flex flex-col xl:flex-row gap-4 justify-center xl:justify-between items-center">
                     <div className="text-center xl:text-right">
                         <h2 className="text-2xl font-extrabold">
@@ -114,7 +102,10 @@ export default async function HomePage() {
                         <IconArrowLeftFill fill="currentColor" />
                     </Button>
                 </div>
-                <BlogPostCardList posts={newestPosts} />
+
+                <Suspense fallback={<CardPlaceholder count={4} />}>
+                    <BlogPostCardList />
+                </Suspense>
             </section>
         </>
     );
