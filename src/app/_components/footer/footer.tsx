@@ -21,36 +21,36 @@ const Footer = () => {
         </div>
         <div className="flex flex-1 flex-col md:flex-row gap-5 md:gap-6 whitespace-nowrap">
           <div className="grid flex-1 basis-36 gap-3 place-items-center md:place-items-start">
-            <Link href="/docs/install/" className="link link-hover">
+            <Link href="/docs/install/" className="link link-hover hover:text-primary-focus">
               آموزش ری‌اکت و نکست
             </Link>
-            <Link href="/docs/customize/" className="link link-hover">
+            <Link href="/docs/customize/" className="link link-hover hover:text-primary-focus">
               سنیور ری‌اکت
             </Link>
-            <Link href="/docs/customize/" className="link link-hover">
+            <Link href="/docs/customize/" className="link link-hover hover:text-primary-focus">
               مشاوره برنامه‌نویسی
             </Link>
           </div>
 
           <div className="grid flex-1 basis-36 gap-3 place-items-center md:place-items-start">
-            <Link href="/docs/themes/" className="link link-hover">
+            <Link href="/docs/themes/" className="link link-hover hover:text-primary-focus">
               کلاسبن در لینکدین
             </Link>
-            <Link href="/docs/themes/" className="link link-hover">
+            <Link href="/docs/themes/" className="link link-hover hover:text-primary-focus">
               کلاسبن در تلگرام
             </Link>
-            <Link href="/docs/themes/" className="link link-hover">
+            <Link href="/docs/themes/" className="link link-hover hover:text-primary-focus">
               کلاسبن در یوتیوب
             </Link>
           </div>
           <div className="grid flex-1 basis-36 gap-3 place-items-center md:place-items-start">
-            <Link href="/docs/themes/" className="link link-hover">
+            <Link href="/docs/themes/" className="link link-hover hover:text-primary-focus">
               مطالب و مقالات
             </Link>
-            <Link href="/docs/themes/" className="link link-hover">
+            <Link href="/docs/themes/" className="link link-hover hover:text-primary-focus">
               پرسش های متداول
             </Link>
-            <Link href="/docs/themes/" className="link link-hover">
+            <Link href="/docs/themes/" className="link link-hover hover:text-primary-focus">
               شرایط استفاده و حریم خصوصی
             </Link>
           </div>
