@@ -9,6 +9,8 @@ import BlogPostCardList from "./_components/blog-post-card-list/blog-post-card-l
 import { API_URL } from "@/lib/configs/global";
 import { Suspense } from "react";
 import { CardPlaceholder } from "@/ui/components/placeholders/card/card-placeholder";
+import { TestimonialList } from "./_components/testimonial/testimonial-list";
+import { testimonials } from "@/lib/data/testimonial";
 
 
 
@@ -106,6 +108,19 @@ export default async function HomePage() {
                 <Suspense fallback={<CardPlaceholder count={4} />}>
                     <BlogPostCardList />
                 </Suspense>
+            </section>
+            <section className="">
+                <div className="relative">
+                    <div className="bg-primary pointer-events-none absolute bottom-0 left-1/2 aspect-square w-1/2 -translate-x-1/2 rounded-full opacity-5 -top-52 blur-3xl"></div>
+                    <h2 className="gradient z-0 mx-auto text-4xl font-extrabold block w-fit">
+                        تجربه هم‌میسرهای کلاسبن
+                    </h2>
+                    <p className=" mb-24 text-lg text-center mt-2">
+                        تو اینجا تنها نیستی. ببین هم‌مسیرهات نظرشون در مورد دوره‌های کلاسبن
+                        چیه
+                    </p>
+                    <TestimonialList testimonials={testimonials} />
+                </div>
             </section>
         </>
     );
