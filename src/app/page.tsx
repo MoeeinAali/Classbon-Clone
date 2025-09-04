@@ -4,17 +4,16 @@ import { homeFeatures } from "@/lib/data/home-features";
 import Feature from "./_components/feature/feature";
 import Button from "@/ui/components/button/button.component";
 import { IconArrowLeftFill } from "@/ui/components/icons/icons";
-import { BlogPostSummary } from "@/lib/types/blog-post-summary.type";
 import BlogPostCardList from "./_components/blog-post-card-list/blog-post-card-list";
-import { API_URL } from "@/lib/configs/global";
 import { Suspense } from "react";
 import { CardPlaceholder } from "@/ui/components/placeholders/card/card-placeholder";
 import { TestimonialList } from "./_components/testimonial/testimonial-list";
 import { testimonials } from "@/lib/data/testimonial";
+import { Metadata } from "next";
 
-
-
-
+export const metadata: Metadata = {
+    title: 'HomePage | Classbon',
+}
 
 export default async function HomePage() {
 
