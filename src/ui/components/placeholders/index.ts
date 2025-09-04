@@ -1,1 +1,1 @@
-export * from "./card/card-placeholder";
+export * from "./card/card-placeholder.component";

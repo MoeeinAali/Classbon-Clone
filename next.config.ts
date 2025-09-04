@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
             {
                 protocol: "https",
                 hostname: "minio-classbon.darkube.app"
+            },
+            {
+                protocol: "https",
+                hostname: "avatars.githubusercontent.com"
             }
         ]
     }

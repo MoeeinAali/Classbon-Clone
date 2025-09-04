@@ -6,7 +6,7 @@ import Button from "@/ui/components/button/button.component";
 import { IconArrowLeftFill } from "@/ui/components/icons/icons";
 import BlogPostCardList from "./_components/blog-post-card-list/blog-post-card-list";
 import { Suspense } from "react";
-import { CardPlaceholder } from "@/ui/components/placeholders/card/card-placeholder";
+import { CardPlaceholder } from "@/ui/components/placeholders/card/card-placeholder.component";
 import { TestimonialList } from "./_components/testimonial/testimonial-list";
 import { testimonials } from "@/lib/data/testimonial";
 import { Metadata } from "next";
