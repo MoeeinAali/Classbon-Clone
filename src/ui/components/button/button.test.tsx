@@ -14,9 +14,9 @@ describe('Button Component', () => {
 
     test("applies the correct css class for different buttons varient", () => {
         const {rerender} = render(<Button variant={"primary"}>click!</Button>)
-        expect(screen.getByRole('button')).toHaveClass("btn-primary")
+        expect(screen.getByRole('button')).toHaveClass("btn primary")
 
         rerender(<Button variant={"info"}>click!</Button>)
-        expect(screen.getByRole('button')).toHaveClass("btn-info")
+        expect(screen.getByRole('button')).toHaveClass("btn info")
     })
 })
