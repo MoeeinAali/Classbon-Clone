@@ -1,6 +1,9 @@
+"use client";
+
 import { Size } from "@/lib/types/size.type";
 import { ProgressProps } from "./progress.types";
 import classNames from "classnames";
+import { useEffect, useState } from "react";
 
 
 const sizeClasses: Record<Size, string> = {
@@ -22,6 +25,7 @@ const Progress: React.FC<ProgressProps> = ({
         { [`progress ${variant}`]: variant },
         { [`${sizeClasses[size]}`]: size },
     );
+    
     return (
         <progress value={value} max="100" className={classes} />
     );

@@ -1,4 +1,4 @@
-import Progress from "@/ui/components/progress/progress";
+import Progress from "@/ui/components/progress/progress.component";
 import Rating from "@/ui/components/rating/rating.component";
 import { CourseAsideProps } from "./course-aside.types";
 import { IconArrowLeftFill, IconClock, IconComment, IconDoc, IconDownload, IconLevel, IconRecord, IconStudents } from "@/ui/components/icons/icons";
@@ -111,6 +111,7 @@ const CourseAside: React.FC<CourseAsideProps> = ({
             >
                 شرکت در دوره
             </Button>
+            
             <div className="border-t border-dashed border-base-content/20 my-5 pt-8 mb-0 flex gap-4 items-center">
                 <Avatar src={`${API_URL}/picture/${profileImageId}`} />
                 <div>
@@ -120,6 +121,7 @@ const CourseAside: React.FC<CourseAsideProps> = ({
                     </p>
                 </div>
             </div>
+
             <Button
                 variant="neutral"
                 shape="full"
