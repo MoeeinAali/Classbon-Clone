@@ -43,7 +43,7 @@ export default async function CourseDetailPage({ params }: { params: { slug: str
     ];
 
     return (
-        <div className="container grid grid-cols-10 grid-rows-[1fr 1fr] gap-10 py-10 debug">
+        <div className="container grid grid-cols-10 grid-rows-[1fr 1fr] gap-10 py-10">
             <div className="bg-primary pointer-events-none absolute right-0 aspect-square w-1/2 rounded-full opacity-10 blur-3xl"></div>
 
             <div className="col-span-10 xl:col-span-7">
