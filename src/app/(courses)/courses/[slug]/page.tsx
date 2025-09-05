@@ -1,5 +1,6 @@
 import { API_URL } from "@/lib/configs/global";
 import { CourseDetails } from "@/lib/types/course-details.dto";
+import Progress from "@/ui/components/progress/progress";
 import Rating from "@/ui/components/rating/rating.component";
 
 
@@ -36,7 +37,11 @@ export default async function CourseDetailPage({ params }: { params: { slug: str
                 <div className="mt-5">Video Player Component</div>
             </div>
             <div className="col-span-10 xl:col-span-3">
-                <Rating rate={course.averageReviewRating} />
+                <Rating rate={course.averageReviewRating} variant="info" />
+                <Progress value={75} />
+                <Progress value={75} size="tiny" variant="warning" />
+                <Progress value={75} size="tiny" variant="error" />
+                <Progress value={75} size="tiny" variant="primary" />
             </div>
             <div className="col-span-10 xl:col-span-6">salam</div>
             <div className="col-span-10 xl:col-span-4">salam</div>
