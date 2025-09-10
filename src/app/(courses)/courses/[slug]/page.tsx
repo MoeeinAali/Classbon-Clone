@@ -21,8 +21,7 @@ export async function generateStaticParams() {
 
 async function getCourse(slug: string): Promise<CourseDetails> {
     const response = await fetch(`${API_URL}/courses/${slug}`);
-    const data = await response.json();
-    return data;
+    return await response.json();
 }
 
 export default async function CourseDetailPage(
