@@ -3,7 +3,8 @@ import {CourseDetails} from "@/lib/types/course-details.dto";
 import CourseAside from "../../_components/course-aside";
 import {Tab} from "@/lib/types/tab.type";
 import Tabs from "@/ui/components/tab/tabs.component";
-
+import {Accordion} from "@/ui/components/accordion/accordion.component";
+import {Accordion as AccordionType} from "@/lib/types/accordion.type"
 
 export async function generateStaticParams() {
     try {
@@ -31,6 +32,12 @@ export default async function CourseDetailPage(
     const {slug} = await params;
     const course = await getCourse(slug);
 
+    const faqs: AccordionType[] = course.frequentlyAskedQuestions.map(faq => ({
+        id: faq.id,
+        title: faq.question,
+        content: faq.answer
+    }))
+
     const tabs: Tab[] = [
         {
             label: "مشخصات دوره",
@@ -42,7 +49,7 @@ export default async function CourseDetailPage(
         },
         {
             label: "سوالات متداول",
-            content: "accordion components",
+            content: <Accordion data={faqs}/>,
         },
     ];
 
@@ -59,7 +66,7 @@ export default async function CourseDetailPage(
                     {course.subTitle}
                 </h2>
 
-                <div className="mt-5">Video Player Component</div>
+                <div className="mt-5 min-h-screen">Video Player Component</div>
             </div>
 
             <div className="col-span-10 xl:col-span-3">
@@ -70,7 +77,7 @@ export default async function CourseDetailPage(
                 <Tabs tabs={tabs}/>
             </div>
 
-            <div className="col-span-10 xl:col-span-4">salam</div>
+            <div className="col-span-10 xl:col-span-4 bg-primary">salam</div>
         </div>
     )
 }

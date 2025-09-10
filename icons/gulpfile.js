@@ -20,7 +20,7 @@ gulp.task("icons_components", () => {
                 plugins: [
                     {
                         name: "cleanupIDs",
-                        params: { remove: true, minify: true },
+                        params: {remove: true, minify: true},
                     },
                     "removeDoctype",
                     "removeComments",
@@ -29,11 +29,11 @@ gulp.task("icons_components", () => {
                     "collapseGroups",
                     {
                         name: "cleanupNumericValues",
-                        params: { floatPrecision: 4 },
+                        params: {floatPrecision: 4},
                     },
                     {
                         name: "convertColors",
-                        params: { names2hex: true, rgb2hex: true },
+                        params: {names2hex: true, rgb2hex: true},
                     },
                     "removeStyleElement",
                     "removeEmptyContainers",
@@ -51,7 +51,7 @@ gulp.task("icons_components", () => {
             })
         )
         .pipe(replace(/<\/?svg(.*?)>/g, ""))
-        .pipe(wrap({ src: jsx_template, width: 50 }))
+        .pipe(wrap({src: jsx_template, width: 50}))
         .pipe(
             rename(function (path) {
                 icons_component_list.push(path.basename);
