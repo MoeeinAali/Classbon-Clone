@@ -15,10 +15,10 @@ export const Accordion: FC<AccordionProps> = ({
     };
 
     return (
-        <div className="accordion rounded-t-xl overflow-hidden">
+        <div className={`accordion rounded-t-xl overflow-hidden`}>
             {data.map((item, index) => (
                 <div key={`accordion-${item.id}`}>
-                    <h2 className="accordion title">
+                    <h2 className={`accordion title`}>
                         <button
                             onClick={() => toggleAccordion(index)}
                             type="button"
@@ -28,12 +28,12 @@ export const Accordion: FC<AccordionProps> = ({
                         >
                             <span>{item.title}</span>
                             <IconChevronDown
-                                className={`transition-all duration-300 ${activeIndex === index && `rotate-180`}`}
+                                className={`${activeIndex === index ? `active` : `in-active`}`}
                                 width={18}/>
                         </button>
                     </h2>
                     {
-                        <div className={`accordion content ${activeIndex === index && "active"}`}>
+                        <div className={`accordion content ${activeIndex === index ? `active` : 'in-active'}`}>
                             {item.content}
                         </div>
                     }
