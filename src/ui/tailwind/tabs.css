@@ -2,7 +2,7 @@
     .tab-labels {
         @apply relative gap-4 mb-5 inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center text-base-content/70;
 
-        &>.tab-label {
+        & > .tab-label {
             @apply text-current font-bold pb-2 transition-all duration-75 border-b border-transparent text-sm xl:text-xl;
 
             &.tab-active {
