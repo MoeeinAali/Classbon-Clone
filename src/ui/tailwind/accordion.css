@@ -11,7 +11,7 @@
             @apply transition-all duration-300;
 
             &.active {
-                @apply rotate-180;
+                @apply rotate-180 text-white;
             }
         }
     }

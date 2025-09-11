@@ -6,7 +6,7 @@ import {Badge} from "@/ui/components/badge/badge.component";
 import {IconChevronDown, IconChevronUp} from "@/ui/components/icons/icons";
 
 export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({data}) => {
-    const [activeIndex, setActiveIndex] = useState<number | null>(0);
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     const toggleAccordion = (index: number) => {
         setActiveIndex(activeIndex === index ? null : index);
@@ -24,7 +24,7 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({data}) => {
                         >
                             <span
                                 className="h-6 w-6 rounded-full flex items-center justify-center font-bold text-sm ml-2 bg-base-content/10">
-                                {index}
+                                {index + 1}
                             </span>
                             <span className="ml-auto">{chapter.title}</span>
                             <div className="flex gap-2 ml-3">
