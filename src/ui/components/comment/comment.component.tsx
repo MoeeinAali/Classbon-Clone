@@ -17,18 +17,19 @@ export const Comment: React.FC<CommentProps> = ({
         <div className={`comment-container comment ${isResponse ? "end -mt-10" : "start"}`}>
             <div className="comment image">
                 <Avatar
-                    src={userId ? API_URL + "/picture/" + userId : undefined}
+                    // src={userId ? `${API_URL}/picture/${userId}` : undefined}
+                    src={isResponse ? "https://avatars.githubusercontent.com/u/118152946" : (userId ? `${API_URL}/picture/${userId}` : undefined)}
                     size="tiny"
                     variant={!isResponse ? "neutral" : variant}
                 />
             </div>
             <div className="comment header">
-                {fullName}
+                {fullName || (isResponse ? "معین آعلی" : "")}
                 <time className="text-xs opacity-50 mx-2">{date}</time>
             </div>
             <div
                 className={`comment bubble ${
-                    isResponse ?  variant : ""
+                    isResponse ? variant : ""
                 }`}
             >
                 {commentText}

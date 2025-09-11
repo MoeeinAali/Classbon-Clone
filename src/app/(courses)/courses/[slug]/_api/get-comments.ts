@@ -16,10 +16,10 @@ const getComments = ({params}: GetCommentsOptions): Promise<CourseCommentList> =
 }
 
 export const useCourseComments = ({params}: GetCommentsOptions) => {
-    const {data} = useQuery({
+    const {data, isLoading} = useQuery({
         queryFn: () => getComments({params}),
         queryKey: ["courseComments", params.slug, params.page],
     })
 
-    return {data}
+    return {data, isLoading}
 }

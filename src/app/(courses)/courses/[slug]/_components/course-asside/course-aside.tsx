@@ -113,9 +113,10 @@ const CourseAside: React.FC<CourseAsideProps> = ({
             </Button>
             
             <div className="border-t border-dashed border-base-content/20 my-5 pt-8 mb-0 flex gap-4 items-center">
-                <Avatar src={`${API_URL}/picture/${profileImageId}`} />
+                {/*<Avatar src={`${API_URL}/picture/${profileImageId}`} />*/}
+                <Avatar src={`https://avatars.githubusercontent.com/u/118152946`} />
                 <div>
-                    <span className="font-semibold">{authorName}</span>
+                    <span className="font-semibold">{authorName || "معین آعلی"}</span>
                     <p className="text-base-content/60 font-semibold">
                         {authorSpecialty}
                     </p>

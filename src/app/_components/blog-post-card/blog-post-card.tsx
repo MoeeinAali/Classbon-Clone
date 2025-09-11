@@ -35,7 +35,8 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
                 <div className="flex items-center justify-between mt-2">
                     <Badge variant="info" size="tiny">
                         <IconUserProfile width={16} height={16} />
-                        {author}
+                        {/*{author}*/}
+                        {"معین آعلی"}
                     </Badge>
                     <Badge variant="neutral">
                         <IconCalendar width={16} height={16} />
