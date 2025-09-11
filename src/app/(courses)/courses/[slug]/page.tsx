@@ -6,6 +6,8 @@ import {Accordion} from "@/ui/components/accordion/accordion.component";
 import {Accordion as AccordionType} from "@/lib/types/accordion.type"
 import CourseAside from "@/app/(courses)/courses/[slug]/_components/course-asside/course-aside";
 import {CourseComments} from "@/app/(courses)/courses/[slug]/_components/course-comments/course-comments";
+import {CourseChapter} from "@/lib/types/course-chapter.interface";
+import CourseCurriculum from "@/app/(courses)/courses/[slug]/_components/course-curriculum/course-curriculum.component";
 
 export async function generateStaticParams() {
     try {
@@ -26,12 +28,17 @@ async function getCourse(slug: string): Promise<CourseDetails> {
     return await response.json();
 }
 
+async function getCurriculum(slug: string): Promise<CourseChapter[]> {
+    const response = await fetch(`${API_URL}/courses/${slug}/curriculum`);
+    return await response.json();
+}
+
 export default async function CourseDetailPage(
     {params}: {
         params: Promise<{ slug: string }>
     }) {
     const {slug} = await params;
-    const course = await getCourse(slug);
+    const [course, courseCurriculum] = await Promise.all([getCourse(slug), getCurriculum(slug)]);
 
     const faqs: AccordionType[] = course.frequentlyAskedQuestions.map(faq => ({
         id: faq.id,
@@ -78,7 +85,12 @@ export default async function CourseDetailPage(
                 <Tabs tabs={tabs}/>
             </div>
 
-            <div className="col-span-10 xl:col-span-4 bg-primary">salam</div>
+            <div className="col-span-10 xl:col-span-4">
+                <div className={"sticky top-5"}>
+                    <h2 className={"mb-5 text-xl"}>سرفصل‌های دوره</h2>
+                    <CourseCurriculum data={courseCurriculum}/>
+                </div>
+            </div>
         </div>
     )
 }

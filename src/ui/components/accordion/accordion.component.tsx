@@ -22,9 +22,7 @@ export const Accordion: FC<AccordionProps> = ({
                         <button
                             onClick={() => toggleAccordion(index)}
                             type="button"
-                            className={`${
-                                index === activeIndex ? "text-white" : "text-base-content"
-                            }`}
+                            className={`${activeIndex === index ? `active` : `in-active`}`}
                         >
                             <span>{item.title}</span>
                             <IconChevronDown
