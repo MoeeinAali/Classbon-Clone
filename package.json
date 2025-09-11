@@ -18,6 +18,7 @@
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "@tailwindcss/postcss": "^4.1.12",
     "ansi-regex": "^5.0.1",
+    "axios": "^1.11.0",
     "classnames": "^2.5.1",
     "next": "15.4.2",
     "postcss": "^8.5.6",
