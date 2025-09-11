@@ -14,8 +14,8 @@ export const queryClient = new QueryClient({
             retry: false,
             refetchOnWindowFocus: false,
             throwOnError: false,
-            staleTime: 5 * 60 * 60 * 1000,
-            gcTime: 6 * 60 * 60 * 1000,
+            staleTime: 5 * 60 * 60 * 1000, // 5hr
+            gcTime: 6 * 60 * 60 * 1000, // 6 hr
         }
     }
 })
