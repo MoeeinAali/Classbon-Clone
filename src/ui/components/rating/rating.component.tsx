@@ -1,6 +1,6 @@
-import { Size } from "@/lib/types/size.type";
-import { IconStar } from "../icons/icons";
-import { RatingProps } from "./rating.types";
+import {Size} from "@/lib/types/size.type";
+import {IconStar} from "../icons/icons";
+import {RatingProps} from "./rating.types";
 
 
 const sizeClasses: Record<Size, number> = {
@@ -12,12 +12,12 @@ const sizeClasses: Record<Size, number> = {
 
 
 const Rating: React.FC<RatingProps> = ({
-    rate,
-    className,
-    size = "normal",
-    variant = "warning"
-}) => {
-    const computedSize = sizeClasses[size];
+                                           rate,
+                                           className,
+                                           size = "normal",
+                                           variant = "warning"
+                                       }) => {
+
     return (
         <div className={`flex gap-1 ${className}`}>
             {

@@ -1,4 +1,4 @@
-import {CourseSummary} from "@/lib/types/course-summary.dto";
+import {CourseSummary} from "@/lib/types/course-summary.interface";
 import CourseCard from "@/app/_components/course-card/course-card";
 import { API_URL } from "@/lib/configs/global";
 

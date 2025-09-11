@@ -1,4 +1,4 @@
-import { CourseDetails } from "@/lib/types/course-details.dto";
+import { CourseDetails } from "@/lib/types/course-details.interface";
 
 
 export type CourseAsideProps = Pick<

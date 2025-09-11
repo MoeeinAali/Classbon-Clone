@@ -1,5 +1,5 @@
 import {API_URL} from "@/lib/configs/global";
-import {CourseDetails} from "@/lib/types/course-details.dto";
+import {CourseDetails} from "@/lib/types/course-details.interface";
 import CourseAside from "../../_components/course-aside";
 import {Tab} from "@/lib/types/tab.type";
 import Tabs from "@/ui/components/tab/tabs.component";

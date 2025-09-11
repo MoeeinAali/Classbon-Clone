@@ -3,7 +3,6 @@
 import { Size } from "@/lib/types/size.type";
 import { ProgressProps } from "./progress.types";
 import classNames from "classnames";
-import { useEffect, useState } from "react";
 
 
 const sizeClasses: Record<Size, string> = {

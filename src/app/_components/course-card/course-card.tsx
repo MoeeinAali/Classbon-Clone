@@ -1,4 +1,4 @@
-import { CourseSummary } from "@/lib/types/course-summary.dto";
+import { CourseSummary } from "@/lib/types/course-summary.interface";
 import Badge from "@/ui/components/badge/badge.component";
 import { IconArrowLeft, IconClock } from "@/ui/components/icons/icons";
 import Price from "@/ui/components/price/price.component";

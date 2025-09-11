@@ -2,7 +2,7 @@
 
 import {useState, FC} from "react";
 import {AccordionProps} from "./accordion.types";
-import {IconChevronDown, IconChevronUp} from "../icons/icons";
+import {IconChevronDown} from "../icons/icons";
 
 export const Accordion: FC<AccordionProps> = ({
                                                   data,
