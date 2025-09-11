@@ -4,6 +4,7 @@ import {useParams} from "next/navigation";
 import {useCourseComments} from "@/app/(courses)/courses/[slug]/_api/get-comments";
 import {Comment} from "@/ui/components/comment/comment.component";
 import {TextPlaceholder} from "@/ui/components/placeholders";
+import {Fragment} from "react";
 
 export const CourseComments = () => {
     const {slug} = useParams();
@@ -20,8 +21,14 @@ export const CourseComments = () => {
             }
 
             {
-                comments?.data.map((comment) => (
-                    <Comment key={`comment-${comment.id}`} {...comment} variant={"info"}/>
+                comments?.pages.map((currentPage) => (
+                    <Fragment key={`comment-page-${currentPage}`}>
+                        {
+                            currentPage.data.map((item) => (
+                                <Comment key={`comment-${item.id}`} {...item} variant={"info"}/>
+                            ))
+                        }
+                    </Fragment>
                 ))
             }
         </>
