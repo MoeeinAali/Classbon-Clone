@@ -6,12 +6,22 @@ import {Comment} from "@/ui/components/comment/comment.component";
 import {TextPlaceholder} from "@/ui/components/placeholders";
 import {Fragment, useEffect} from "react";
 import {useInView} from "react-intersection-observer";
+import Button from "@/ui/components/button/button.component";
+import {IconRefresh} from "@/ui/components/icons/icons";
 
 export const CourseComments = () => {
     const {ref, inView} = useInView({})
     const {slug} = useParams();
 
-    const {data: comments, isLoading, isFetchingNextPage, hasNextPage, fetchNextPage} = useCourseComments({
+    const {
+        data: comments,
+        error,
+        isLoading,
+        isFetchingNextPage,
+        hasNextPage,
+        fetchNextPage,
+        refetch
+    } = useCourseComments({
         params: {
             slug: slug as string,
             page: 1
@@ -23,6 +33,26 @@ export const CourseComments = () => {
             fetchNextPage().then();
         }
     }, [inView, fetchNextPage, hasNextPage]);
+
+    if (error) {
+        return (
+            <>
+                <p>خطا در برقراری ارتباط با سرور</p>
+                <div className={"text-center mt-3"}>
+                    <Button
+                        variant="neutral"
+                        className={"font-semibold"}
+                        isOutlined={true}
+                        shape={"wide"}
+                        onClick={() => refetch()}
+                    >
+                        <IconRefresh/>
+                        تلاش مجدد
+                    </Button>
+                </div>
+            </>
+        )
+    }
 
     return (
         <>
@@ -38,7 +68,7 @@ export const CourseComments = () => {
                 ))
             }
             {
-                (isFetchingNextPage || hasNextPage) &&
+                (isFetchingNextPage || hasNextPage || isLoading) &&
                 <div ref={ref}>
                     <TextPlaceholder count={1}/>
                 </div>

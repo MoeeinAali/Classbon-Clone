@@ -25,7 +25,7 @@ export const useCourseComments = ({params}: GetCommentsOptions) => {
         hasNextPage,
         refetch
     } = useInfiniteQuery<CourseCommentList>({
-        queryKey: ["courseComments", params.slug, params.page],
+        queryKey: ["courseComments", params.slug],
         queryFn: ({pageParam}) => getComments({params: {...params, page: pageParam as number}}),
         getNextPageParam: (lastPage) => lastPage.nextPage,
         initialPageParam: 1,
