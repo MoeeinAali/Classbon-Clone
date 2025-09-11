@@ -1,10 +1,11 @@
 import {API_URL} from "@/lib/configs/global";
 import {CourseDetails} from "@/lib/types/course-details.interface";
-import CourseAside from "../../_components/course-aside";
 import {Tab} from "@/lib/types/tab.type";
 import Tabs from "@/ui/components/tab/tabs.component";
 import {Accordion} from "@/ui/components/accordion/accordion.component";
 import {Accordion as AccordionType} from "@/lib/types/accordion.type"
+import CourseAside from "@/app/(courses)/courses/[slug]/_components/course-asside/course-aside";
+import {CourseComments} from "@/app/(courses)/courses/[slug]/_components/course-comments/course-comments";
 
 export async function generateStaticParams() {
     try {
@@ -45,7 +46,7 @@ export default async function CourseDetailPage(
         },
         {
             label: "دیدگاه‌ها و پرسش",
-            content: "course comments",
+            content: <CourseComments/>,
         },
         {
             label: "سوالات متداول",

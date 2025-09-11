@@ -4,6 +4,7 @@ import {QueryClientProvider} from "@tanstack/react-query";
 import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 
 const QueryProvider: FC<PropsWithChildren> = ({children}) => (
+
     <QueryClientProvider client={queryClient}>
         {children}
         <ReactQueryDevtools initialIsOpen={false}/>

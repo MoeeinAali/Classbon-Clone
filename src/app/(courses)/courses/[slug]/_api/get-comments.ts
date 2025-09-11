@@ -17,8 +17,10 @@ const getComments = ({params}: GetCommentsOptions): Promise<CourseCommentList> =
 
 export const useCourseComments = ({params}: GetCommentsOptions) => {
     const {data} = useQuery({
-        queryKey: ["courseComments"],
-        queryFn: () => getComments({params})
+        queryKey: ["courseComments", params.slug, params.page],
+        queryFn: () => getComments({params}),
+        staleTime: 5 * 60 * 60 * 1000,
+        gcTime: 6 * 60 * 60 * 1000
     })
 
     return {data}
