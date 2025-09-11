@@ -3,7 +3,7 @@
 import React, {useState} from "react";
 import {CourseCurriculumProps} from "./course-curriculum.types";
 import {Badge} from "@/ui/components/badge/badge.component";
-import {IconChevronDown, IconChevronUp} from "@/ui/components/icons/icons";
+import {IconChevronDown} from "@/ui/components/icons/icons";
 
 export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({data}) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
