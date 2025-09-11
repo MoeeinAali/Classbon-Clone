@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import "./globals.css";
 import Header from "@/app/_components/header/header";
 import Footer from "@/app/_components/footer/footer";
+import QueryProvider from "@/ui/providers/react-query.provider";
 
 const figtree = Figtree({
     display: 'swap',
@@ -62,11 +63,13 @@ export default function RootLayout({
     return (
         <html dir={"rtl"} className={`${figtree.variable} ${yekanBakh.variable}`}>
         <body className="min-h-screen grid grid-rows-[80px_1fr_auto] bg-base-100 text-base-content">
-        <Header/>
-        <main>
-            {children}
-        </main>
-        <Footer/>
+        <QueryProvider>
+            <Header/>
+            <main>
+                {children}
+            </main>
+            <Footer/>
+        </QueryProvider>
         </body>
         </html>
     );
