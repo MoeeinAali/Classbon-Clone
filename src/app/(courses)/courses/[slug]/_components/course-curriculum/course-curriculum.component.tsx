@@ -49,7 +49,7 @@ export const CourseCurriculum: React.FC<CourseCurriculumProps> = ({data}) => {
                                     className="py-5 border-b border-base-content/10 border-dashed last-of-type:border-0"
                                     key={`lecture-${lecture.title}`}
                                 >
-                                    <h3 className="text-base font-semibold text-gray-400 flex items-center justify-between">
+                                    <h3 className="text-base font-semibold text-gray-400 flex items-center gap-2 justify-between">
                                         {lecture.title}
                                         <div className="flex items-center gap-2">
                                             <Badge

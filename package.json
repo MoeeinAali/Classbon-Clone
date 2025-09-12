@@ -23,6 +23,7 @@
     "axios": "^1.11.0",
     "classnames": "^2.5.1",
     "next": "15.4.2",
+    "nextjs-toploader": "^3.9.17",
     "postcss": "^8.5.6",
     "postcss-nested": "^7.0.2",
     "react": "19.1.0",
