@@ -116,6 +116,22 @@
     :lang(en) {
         font-family: var(--font-figtree);
     }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .fade-in {
+        animation: fadeIn 0.8s ease forwards;
+    }
 }
 
 .debug {
