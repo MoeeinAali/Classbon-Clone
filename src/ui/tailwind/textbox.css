@@ -7,8 +7,6 @@
     }
 
     &.ghost {
-        /* @apply bg-opacity-5; */
-
         &:focus {
             @apply outline-primary border-primary;
             box-shadow: none;
