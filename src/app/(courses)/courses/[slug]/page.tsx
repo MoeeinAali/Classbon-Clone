@@ -8,6 +8,8 @@ import CourseAside from "@/app/(courses)/courses/[slug]/_components/course-assid
 import {CourseComments} from "@/app/(courses)/courses/[slug]/_components/course-comments/course-comments";
 import {CourseChapter} from "@/lib/types/course-chapter.interface";
 import CourseCurriculum from "@/app/(courses)/courses/[slug]/_components/course-curriculum/course-curriculum.component";
+import VideoPlayer from "@/ui/components/video-player/video-player.component";
+import Image from "next/image";
 
 export async function generateStaticParams() {
     try {
@@ -74,7 +76,14 @@ export default async function CourseDetailPage(
                     {course.subTitle}
                 </h2>
 
-                <div className="mt-5 min-h-screen">Video Player Component</div>
+                <div className="mt-5">
+                    {course.videoUrl ? (
+                        <VideoPlayer src={course.videoUrl} poster={`${API_URL}/picture/${course.coverImageId}`}/>
+                    ) : (
+                        <Image src={`${API_URL}/picture/${course.coverImageId}`} alt={course.title}
+                               width={550} height={327} className={"w-full"}/>
+                    )}
+                </div>
             </div>
 
             <div className="col-span-10 xl:col-span-3">
