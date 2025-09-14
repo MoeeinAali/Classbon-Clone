@@ -6,6 +6,7 @@ import {SignIn} from "@/app/(auth)/signin/_types/signin.interface";
 import {TextInput} from "@/ui/components/form-inputs";
 import {useSignIn} from "@/app/(auth)/signin/_api/signin";
 import {useRouter} from "next/navigation";
+import {useNotificationStore} from "@/lib/stores/notification.store";
 
 const SignInForm = () => {
     const {
@@ -15,15 +16,18 @@ const SignInForm = () => {
         getValues
     } = useForm<SignIn>();
     const router = useRouter();
+    const showNotification = useNotificationStore((state) => state.showNotification)
 
     const signIn = useSignIn({
         onSuccess: () => {
+            showNotification({type: "neutral", message: "salam", duration: 3000})
             router.push(`/verify?mobile=${getValues('mobile')}`);
         }
     });
     const onSubmit = async (data: SignIn) => {
         signIn.submit(data);
     }
+
     return (
         <>
             <h5 className="text-2xl">ورود | ثبت نام</h5>
