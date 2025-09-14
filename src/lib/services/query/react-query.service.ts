@@ -8,7 +8,26 @@ import {Notification} from "@/lib/types/notification.interface";
 export const queryClient = new QueryClient({
     queryCache: new QueryCache({
         onError: (error) => {
-            handleProblemNotification(error as unknown as Problem);
+            const problem = error as unknown as Problem;
+            const notifications: Omit<Notification, 'id'>[] = []
+
+            if (problem?.errors) {
+                Object.entries(problem.errors).forEach(([_, error]) => {
+                    error.forEach((errorMessage) => {
+                        notifications.push({
+                            type: "error",
+                            message: errorMessage,
+                        })
+                    })
+                })
+            } else if (problem?.detail) {
+                notifications.push({
+                    type: "error",
+                    message: problem.detail,
+                })
+            }
+
+            showNotifications(notifications);
         }
     }),
 
@@ -23,25 +42,3 @@ export const queryClient = new QueryClient({
     }
 })
 
-
-const handleProblemNotification = (problem: Problem) => {
-    const notifications: Omit<Notification, 'id'>[] = []
-
-    if (problem?.errors) {
-        Object.entries(problem.errors).forEach(([_, error]) => {
-            error.forEach((errorMessage) => {
-                notifications.push({
-                    type: "error",
-                    message: errorMessage,
-                })
-            })
-        })
-    } else if (problem?.detail) {
-        notifications.push({
-            type: "error",
-            message: problem.detail,
-        })
-    }
-
-    showNotifications(notifications);
-}
