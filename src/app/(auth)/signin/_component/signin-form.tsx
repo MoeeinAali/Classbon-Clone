@@ -16,11 +16,9 @@ const SignInForm = () => {
         getValues
     } = useForm<SignIn>();
     const router = useRouter();
-    const showNotification = useNotificationStore((state) => state.showNotification)
 
     const signIn = useSignIn({
         onSuccess: () => {
-            showNotification({type: "neutral", message: "salam", duration: 3000})
             router.push(`/verify?mobile=${getValues('mobile')}`);
         }
     });
