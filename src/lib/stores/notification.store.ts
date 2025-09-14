@@ -1,6 +1,7 @@
 import {Notification} from "../types/notification.interface"
 import {create} from "zustand/react";
 import {v4 as uuidv4} from 'uuid';
+import {devtools} from 'zustand/middleware';
 
 type NotificationState = {
     notifications: Notification[]
@@ -9,7 +10,7 @@ type NotificationState = {
 }
 
 
-export const useNotificationStore = create<NotificationState>(
+export const useNotificationStore = create<NotificationState>()(devtools(
     (setState, getState) => ({
         notifications: [],
         showNotification: (newNotification) => {
@@ -17,12 +18,9 @@ export const useNotificationStore = create<NotificationState>(
             setState((state) => ({
                 notifications: [...state.notifications, {...newNotification, id}]
             }));
-
             setTimeout(() => {
                 getState().dismissNotification(id);
             }, newNotification.duration)
-
-
         },
         dismissNotification: (id) => {
             setState(state => ({
@@ -30,4 +28,4 @@ export const useNotificationStore = create<NotificationState>(
             }))
         }
     })
-)
+))
