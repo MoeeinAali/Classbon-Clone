@@ -1,5 +1,5 @@
 import {Notification} from "../types/notification.interface"
-import {create} from "zustand/react";
+import {create} from "zustand";
 import {v4 as uuidv4} from 'uuid';
 import {devtools} from 'zustand/middleware';
 
@@ -29,3 +29,7 @@ export const useNotificationStore = create<NotificationState>()(devtools(
         }
     })
 ))
+
+export const showNotifications = (notifications: Omit<Notification, "id">[]) => {
+    notifications.forEach((notification) => useNotificationStore.getState().showNotification(notification));
+}
