@@ -15,6 +15,7 @@ export const useNotificationStore = create<NotificationState>()(devtools(
         notifications: [],
         showNotification: (newNotification) => {
             const id: string = uuidv4();
+            newNotification = {duration: 5000, ...newNotification};
             setState((state) => ({
                 notifications: [...state.notifications, {...newNotification, id}]
             }));

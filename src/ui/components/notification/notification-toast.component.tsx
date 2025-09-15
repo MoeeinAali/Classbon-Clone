@@ -17,8 +17,8 @@ const notificationTypes: Record<NotificationType, string> = {
 
 const notificationIcons: Record<NotificationType, ReactNode> = {
     success: <IconCheck width={20} height={20} color="white"/>,
-    info: <IconInfo width={20} height={20} color="white"/>,
-    warning: <IconInfo width={20} height={20} color="white"/>,
+    info: <IconInfo width={20} height={20} color={"white"} fill={"white"} stroke={"transparent"}/>,
+    warning: <IconInfo width={20} height={20} color={"white"} fill={"white"} stroke={"transparent"}/>,
     error: <IconError width={20} height={20} color="white"/>,
 };
 
