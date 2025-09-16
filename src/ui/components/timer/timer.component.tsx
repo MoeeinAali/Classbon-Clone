@@ -52,7 +52,7 @@ const TimerWithoutRef: ForwardRefRenderFunction<TimerRef, TimerProps> = ({
     }));
 
     const maxDaysValue = calculateTotalSeconds(30, 0, 0, 0);
-    const maxHourseValue = calculateTotalSeconds(0, 24, 0, 0);
+    const maxHoursValue = calculateTotalSeconds(0, 24, 0, 0);
     const maxMinutesValue = calculateTotalSeconds(0, 0, 60, 0);
     const maxSecondsValue = calculateTotalSeconds(0, 0, 0, 60);
 
@@ -81,7 +81,7 @@ const TimerWithoutRef: ForwardRefRenderFunction<TimerRef, TimerProps> = ({
             show: showHours && hours != null,
             unit: hours,
             value: hoursValue,
-            maxValue: maxHourseValue,
+            maxValue: maxHoursValue,
             datePart: "hours",
         },
         {

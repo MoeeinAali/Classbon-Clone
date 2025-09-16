@@ -1,5 +1,4 @@
-import {FieldValues} from "react-hook-form";
+import {z} from "zod";
+import {SignInSchema} from "@/app/(auth)/signin/_types/signin.schema";
 
-export interface SignIn extends FieldValues {
-    mobile: string;
-}
+export type SignIn = z.infer<typeof SignInSchema>;

@@ -36,7 +36,6 @@ const AuthCodeWithoutRef: ForwardRefRenderFunction<AuthCodeRef, AuthCodeProps> =
     };
 
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log('on change');
         const {target: {value, nextElementSibling}} = e;
 
         if (value.match(inputProps.pattern)) {
@@ -60,10 +59,10 @@ const AuthCodeWithoutRef: ForwardRefRenderFunction<AuthCodeRef, AuthCodeProps> =
         const target = e.target as HTMLInputElement;
         if (key === 'Backspace') {
             if (target.value === '') {
-                if (target.previousElementSibling !== null) {
-                    const previousElement = target.previousElementSibling as HTMLInputElement;
-                    previousElement.value = '';
-                    previousElement.focus();
+                const previousElementSibling = target.previousElementSibling as HTMLInputElement
+                if (previousElementSibling !== null) {
+                    previousElementSibling.value = '';
+                    previousElementSibling.focus();
                 }
             } else {
                 target.value = '';
@@ -94,33 +93,29 @@ const AuthCodeWithoutRef: ForwardRefRenderFunction<AuthCodeRef, AuthCodeProps> =
     }))
 
     const classes = classNames("textbox flex-1 w-1 text-center", {
-        [`textbox-${variant}`]: variant,
+        [`textbox ${variant}`]: variant,
     });
 
-    const inputs = [];
-    for (let i = 0; i < length; i++) {
-        inputs.push(
-            <input
-                key={`auth-code-input-${i + 1}`}
-                type="text"
-                maxLength={1}
-                className={classes}
-                disabled={isDisabled}
-                onChange={handleOnChange}
-                onFocus={handleOnFocus}
-                onKeyDown={handleOnKeyDown}
-                ref={(element: HTMLInputElement) => {
-                    inputsRef.current[i] = element;
-                }}
-            />
-        );
-    }
-
     return (
-        <>
-            <div className={`flex gap-4 flex-row-reverse `}>{inputs}</div>
-        </>
+        <div className={`flex gap-4 flex-row-reverse ${className}`}>
+            {Array.from({length}).map((_, i) => (
+                <input
+                    key={`auth-code-input-${i + 1}`}
+                    type="text"
+                    maxLength={1}
+                    className={classes}
+                    disabled={isDisabled}
+                    onChange={handleOnChange}
+                    onFocus={handleOnFocus}
+                    onKeyDown={handleOnKeyDown}
+                    ref={(el: HTMLInputElement) => {
+                        inputsRef.current[i] = el;
+                    }}
+                />
+            ))}
+        </div>
     );
+
 });
 
 const AuthCode = forwardRef(AuthCodeWithoutRef)

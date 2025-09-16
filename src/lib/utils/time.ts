@@ -10,3 +10,9 @@ export function secondsToHHMMSS(totalSeconds: number): string {
 
     return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 }
+
+export const getTwoMinutesFromNow = () => {
+    const time = new Date();
+    time.setSeconds(time.getSeconds() + 120);
+    return time;
+};

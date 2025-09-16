@@ -3,7 +3,7 @@
 import {useNotificationStore} from "@/lib/stores/notification.store";
 import {useForm} from "react-hook-form";
 import {VerifyUserModel} from "@/app/(auth)/verify/_types/verify-user.type";
-import {useRef, useState} from "react";
+import {useMemo, useRef, useState} from "react";
 import {useSearchParams} from "next/navigation";
 import {useSendAuthCode} from "../_api/send-auth-code";
 import AuthCode from "@/ui/components/auth-code/auth-code.component";
@@ -12,27 +12,32 @@ import Button from "@/ui/components/button/button.component";
 import {AuthCodeRef} from "@/ui/components/auth-code/auth-code.types";
 import {TimerRef} from "@/ui/components/timer/timer.types";
 import Timer from "@/ui/components/timer/timer.component";
-
-const getTwoMinutesFromNow = () => {
-    const time = new Date();
-    time.setSeconds(time.getSeconds() + 120);
-    return time;
-};
-
+import {getTwoMinutesFromNow} from "@/lib/utils/time";
+import {zodResolver} from "@hookform/resolvers/zod";
+import {VerifyUserSchema} from "@/app/(auth)/verify/_types/verify-user.schema";
 
 const VerificationForm = () => {
+    const showNotification = useNotificationStore(state => state.showNotification);
+
     const [showResendCode, setShowResendCode] = useState<boolean>(false);
+
     const authCodeRef = useRef<AuthCodeRef>(null);
     const timerRef = useRef<TimerRef>(null);
 
-    const {handleSubmit, setValue, register, formState: {isValid}} = useForm<VerifyUserModel>();
-
-    const showNotification = useNotificationStore(state => state.showNotification);
-
     const params = useSearchParams();
-    const username = params.get('mobile')!;
+    const usernameFromQuery = params.get("mobile") ?? "";
+    const defaultValues = useMemo<VerifyUserModel>(
+        () => ({username: usernameFromQuery, code: ""}),
+        [usernameFromQuery]
+    );
 
-    const sendAuthCode = useSendAuthCode({
+    const {
+        handleSubmit, formState: {isValid}, setValue,
+    } = useForm<VerifyUserModel>({
+        resolver: zodResolver(VerifyUserSchema), defaultValues,
+    });
+
+    const getNewAuthCode = useSendAuthCode({
         onSuccess: () => {
             showNotification({
                 type: 'info',
@@ -40,21 +45,16 @@ const VerificationForm = () => {
             })
         }
     })
-
-    const onSubmit = (data: VerifyUserModel) => {
-        data.username = username;
-        console.log(data);
-    }
-
-    register('code', {
-        validate: (value: string) => (value ?? "").length === 5
-    })
-
     const resendAuthCode = () => {
         timerRef.current?.restart(getTwoMinutesFromNow());
         setShowResendCode(false);
-        sendAuthCode.submit(username);
+        getNewAuthCode.submit(usernameFromQuery);
         authCodeRef.current?.clear();
+    }
+
+    const onSubmit = (data: VerifyUserModel) => {
+        data.username = usernameFromQuery;
+        console.log(data);
     }
     return (
         <>
@@ -70,16 +70,20 @@ const VerificationForm = () => {
                         setValue('code', value, {shouldValidate: true})
                     }}
                 />
+
                 <Timer ref={timerRef} className="my-8" size="small" onExpire={() => {
                     setShowResendCode(true)
-                }} expiryTimestamp={getTwoMinutesFromNow()} showDays={false} showHours={false}/>
+                }} expiryTimestamp={getTwoMinutesFromNow()} showDays={true} showHours={true}/>
+
                 <Button isLink={true} isDisabled={!showResendCode} onClick={resendAuthCode}>ارسال مجدد کد تایید</Button>
+
                 <Button type="submit" variant="primary" isDisabled={!isValid}>
                     تایید و ادامه
                 </Button>
+
                 <div className="flex items-start gap-1 justify-center mt-auto">
                     <span>برای اصلاح شماره موبایل</span>
-                    <Link href="/signin">اینجا</Link>
+                    <Link className={"hover:underline text-primary"} href="/signin">اینجا</Link>
                     <span>کلیک کنید</span>
                 </div>
             </form>
