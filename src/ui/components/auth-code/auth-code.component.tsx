@@ -101,6 +101,7 @@ const AuthCodeWithoutRef: ForwardRefRenderFunction<AuthCodeRef, AuthCodeProps> =
     for (let i = 0; i < length; i++) {
         inputs.push(
             <input
+                key={`auth-code-input-${i + 1}`}
                 type="text"
                 maxLength={1}
                 className={classes}

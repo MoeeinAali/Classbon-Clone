@@ -1,6 +1,5 @@
 "use client";
 
-
 import {useNotificationStore} from "@/lib/stores/notification.store";
 import {useForm} from "react-hook-form";
 import {VerifyUserModel} from "@/app/(auth)/verify/_types/verify-user.type";
