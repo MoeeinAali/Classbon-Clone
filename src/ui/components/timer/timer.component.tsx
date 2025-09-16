@@ -6,10 +6,10 @@ import {Size} from "@/lib/types/size.type";
 import {useTimer} from "react-timer-hook";
 
 const sizeClasses: Record<Size, string> = {
-    tiny: "timer-xs",
-    small: "timer-sm",
-    normal: "timer-md",
-    large: "timer-lg",
+    tiny: "timer xs",
+    small: "timer sm",
+    normal: "timer md",
+    large: "timer lg",
 };
 
 const calculateTotalSeconds = (
@@ -40,7 +40,7 @@ const TimerWithoutRef: ForwardRefRenderFunction<TimerRef, TimerProps> = ({
     const classes = classNames(
         "timer",
         {[`${sizeClasses[size]}`]: size},
-        {[`timer-${variant}`]: variant},
+        {[`timer ${variant}`]: variant},
         className
     );
 
