@@ -7,6 +7,7 @@ import Footer from "@/app/_components/footer/footer";
 import QueryProvider from "@/ui/providers/react-query.provider";
 import NextTopLoader from "nextjs-toploader";
 import Notifications from "@/ui/components/notification/notifications.component";
+import AuthProvider from "@/ui/providers/auth.provider";
 
 const figtree = Figtree({
     display: 'swap',
@@ -67,13 +68,15 @@ export default function RootLayout({
         <body className="min-h-screen grid grid-rows-[80px_1fr_auto] bg-base-100 text-base-content">
         <NextTopLoader showSpinner={false} color={"var(--color-primary)"}/>
         <Notifications/>
-        <QueryProvider>
-            <Header/>
-            <main>
-                {children}
-            </main>
-            <Footer/>
-        </QueryProvider>
+        <AuthProvider>
+            <QueryProvider>
+                <Header/>
+                <main>
+                    {children}
+                </main>
+                <Footer/>
+            </QueryProvider>
+        </AuthProvider>
         </body>
         </html>
     );

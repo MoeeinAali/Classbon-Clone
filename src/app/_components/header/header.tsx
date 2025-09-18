@@ -1,10 +1,9 @@
 import Image from "next/image";
 import TopNavigation from "@/app/_components/top-navigaation/top-navigation.component";
 import Link from "next/link";
-import {auth} from "@/auth";
+import HeaderUserSection from "./header-user-section";
 
 export const Header = async () => {
-    const session = await auth();
     return (
         <header className="border-b border-base-300 border-opacity-5">
             <div className="flex items-center justify-between container">
@@ -17,7 +16,7 @@ export const Header = async () => {
                     />
                 </Link>
                 <TopNavigation/>
-                <div className="mr-auto">{session?.user.mobile}</div>
+                <div className="mr-auto"><HeaderUserSection/></div>
             </div>
         </header>
     )
