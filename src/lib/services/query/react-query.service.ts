@@ -31,6 +31,7 @@ export const queryClient = new QueryClient({
 const handleError = (problem: Problem) => {
     const notifications: Omit<Notification, "id">[] = [];
     if (problem?.errors) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         Object.entries(problem.errors).forEach(([_, values]) =>
             values.forEach((errorMessage) =>
                 notifications.push({

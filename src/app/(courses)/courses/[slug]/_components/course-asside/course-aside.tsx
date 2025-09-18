@@ -4,7 +4,6 @@ import { CourseAsideProps } from "./course-aside.types";
 import { IconArrowLeftFill, IconClock, IconComment, IconDoc, IconDownload, IconLevel, IconRecord, IconStudents } from "@/ui/components/icons/icons";
 import Button from "@/ui/components/button/button.component";
 import Avatar from "@/ui/components/avatar/avatar.component";
-import { API_URL } from "@/lib/configs/global";
 import Price from "@/ui/components/price/price.component";
 import { CourseLevel } from "@/lib/enums/course-level.enum";
 import { Variant } from "@/lib/types/variant.type";
@@ -34,7 +33,6 @@ const CourseAside: React.FC<CourseAsideProps> = ({
     numOfReviews,
     authorName,
     authorSpecialty,
-    profileImageId,
     levelNumber,
 }) => {
     return (

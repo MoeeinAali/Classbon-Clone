@@ -40,7 +40,7 @@ const SignInForm = () => {
             })
             console.log(formState.response)
         }
-    }, [formState, showNotification])
+    }, [formState, getValues, router, showNotification])
 
     const onSubmit = async (data: SignIn) => {
 

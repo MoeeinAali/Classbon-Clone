@@ -15,7 +15,6 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {VerifyUserSchema} from "@/app/(auth)/verify/_types/verify-user.schema";
 import {sendAuthCode, verify} from "@/lib/actions/auth";
 import {useSearchParams} from "next/navigation";
-import {Problem} from "@/lib/types/http-errors.interface";
 
 const VerificationForm = () => {
     const showNotification = useNotificationStore(state => state.showNotification);
@@ -41,7 +40,7 @@ const VerificationForm = () => {
     } = useForm<VerifyUserModel>({resolver: zodResolver(VerifyUserSchema), defaultValues});
 
     const [sendAuthCodeState, sendAuthCodeAction] = useActionState(sendAuthCode, null);
-    const [verifyState, verifyAction] = useActionState(verify, undefined)
+    const [, verifyAction] = useActionState(verify, undefined)
     const [isPending, startTransition] = useTransition();
 
     const resendAuthCode = () => {

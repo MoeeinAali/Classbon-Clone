@@ -49,7 +49,7 @@ export const {
                         accessToken: response.token
                     };
                     return user
-                } catch (error: unknown) {
+                } catch {
                     throw new Error('error!!!');
                 }
             }

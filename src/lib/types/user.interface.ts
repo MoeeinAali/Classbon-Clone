@@ -10,6 +10,4 @@ export interface UserToken {
     accessToken: string;
 }
 
-export interface UserSession extends UserToken {
-
-}
+export type UserSession = UserToken

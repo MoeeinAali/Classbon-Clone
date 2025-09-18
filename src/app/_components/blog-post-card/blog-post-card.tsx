@@ -12,7 +12,6 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
     title,
     coverImage,
     studyTime,
-    author,
     numberOfComments,
     numberOfViews,
     postDate,
