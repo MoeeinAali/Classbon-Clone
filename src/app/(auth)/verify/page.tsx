@@ -1,5 +1,5 @@
 import VerificationForm from "@/app/(auth)/verify/_component/verification-form.component";
 
-export default async function VerifyPage() {
+export default function VerifyPage() {
     return <VerificationForm/>
 }
