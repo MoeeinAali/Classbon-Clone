@@ -8,7 +8,7 @@ import {useRouter} from "next/navigation";
 import {useNotificationStore} from "@/lib/stores/notification.store";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {SignInSchema} from "@/app/(auth)/signin/_types/signin.schema";
-import {signIn} from "@/lib/actions/auth";
+import {signInAction} from "@/lib/actions/auth";
 import {useActionState, useEffect, useTransition} from "react";
 
 const SignInForm = () => {
@@ -23,7 +23,7 @@ const SignInForm = () => {
 
     const showNotification = useNotificationStore(state => state.showNotification);
 
-    const [formState, action] = useActionState(signIn, null)
+    const [formState, action] = useActionState(signInAction, null)
     const [isPending, startTransition] = useTransition();
 
     useEffect(() => {
