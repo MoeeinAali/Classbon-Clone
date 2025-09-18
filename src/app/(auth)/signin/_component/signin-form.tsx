@@ -15,7 +15,7 @@ const SignInForm = () => {
     const {
         register,
         handleSubmit,
-        formState: {errors},
+        formState: {errors,isValid},
         getValues
     } = useForm<SignIn>({resolver: zodResolver(SignInSchema)}
     );
@@ -62,7 +62,7 @@ const SignInForm = () => {
                     errors={errors}
                 />
 
-                <Button isLoading={isPending} type="submit" variant="primary">
+                <Button isLoading={isPending} type="submit" disabled={!isValid} variant="primary">
                     تایید و دریافت کد
                 </Button>
             </form>
