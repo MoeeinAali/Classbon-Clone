@@ -41,7 +41,7 @@ const VerificationForm = () => {
     } = useForm<VerifyUserModel>({resolver: zodResolver(VerifyUserSchema), defaultValues});
 
     const [sendAuthCodeState, sendAuthCodeAction] = useActionState(sendAuthCode, null);
-    const [verifyState, verifyAction] = useActionState<Problem | null, FormData>(verify, null)
+    const [verifyState, verifyAction] = useActionState(verify, undefined)
     const [isPending, startTransition] = useTransition();
 
     const resendAuthCode = () => {
@@ -55,7 +55,12 @@ const VerificationForm = () => {
 
     const onSubmit = (data: VerifyUserModel) => {
         data.username = mobile;
-        console.log(data);
+        const formData = new FormData();
+        formData.append("username", data.username);
+        formData.append("code", data.code);
+        startTransition(async () => {
+            verifyAction(formData)
+        })
     }
 
     useEffect(() => {
@@ -99,7 +104,7 @@ const VerificationForm = () => {
                 <Button isLink={true} isDisabled={!showResendCode || isPending} onClick={resendAuthCode}>ارسال
                     مجدد کد تایید</Button>
 
-                <Button type="submit" variant="primary" isDisabled={!isValid || isPending}>
+                <Button type="submit" variant="primary" isLoading={isPending} isDisabled={!isValid || isPending}>
                     تایید و ادامه
                 </Button>
 

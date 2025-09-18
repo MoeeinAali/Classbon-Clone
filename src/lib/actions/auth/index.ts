@@ -18,14 +18,15 @@ export async function sendAuthCode(formState: OperationResult<string> | null, da
     return serverActionWrapper<string>(async () => await httpService.post<SignIn, string>("/send-auth-code", data))
 }
 
-export async function verify(state: Problem | null, formData: FormData): Promise<null> {
+export async function verify(state: Problem | undefined, formData: FormData) {
     try {
         await signIn('credentials', formData)
     } catch (error) {
-        //     TODO:better error handling
-        console.error(error);
+        return {
+            status: 0,
+            title: "",
+        } satisfies Problem
     }
-    return null
 }
 
 export async function logout() {

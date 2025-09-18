@@ -10,10 +10,6 @@ declare module 'next-auth' {
     interface User {
         accessToken: string;
     }
-
-    interface Session {
-        user: UserSession;
-    }
 }
 
 export const {
