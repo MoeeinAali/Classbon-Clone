@@ -20,32 +20,32 @@ const yekanBakh = localFont({
     display: 'swap',
     src: [
         {
-            path: '../../public/fonts/yekanbakh/thin.ttf',
+            path: '../../public/fonts/yekanBakh/thin.ttf',
             weight: '100',
             style: 'normal'
         },
         {
-            path: '../../public/fonts/yekanbakh/light.ttf',
+            path: '../../public/fonts/yekanBakh/light.ttf',
             weight: '300',
             style: 'normal'
         },
         {
-            path: '../../public/fonts/yekanbakh/regular.ttf',
+            path: '../../public/fonts/yekanBakh/regular.ttf',
             weight: '400',
             style: 'normal'
         },
         {
-            path: '../../public/fonts/yekanbakh/semibold.ttf',
+            path: '../../public/fonts/yekanBakh/semibold.ttf',
             weight: '600',
             style: 'normal'
         },
         {
-            path: '../../public/fonts/yekanbakh/bold.ttf',
+            path: '../../public/fonts/yekanBakh/bold.ttf',
             weight: '700',
             style: 'normal'
         },
         {
-            path: '../../public/fonts/yekanbakh/black.ttf',
+            path: '../../public/fonts/yekanBakh/black.ttf',
             weight: '900',
             style: 'normal'
         }
